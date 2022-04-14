@@ -35,17 +35,16 @@ slice parse_sender_address (cell in_msg_full) {
 () recv_internal (int balance, int msg_value, cell in_msg_full, slice in_msg_body) impure {
   slice sender_address = parse_sender_address(in_msg_full); ;; parameters
   slice owner_address = load_data();
-  int check = equal_slices(sender_address, owner_address);
-  if (check != 0) {
-	  var msg = begin_cell()
-        .store_uint(0x10, 6)
+  throw_if(34, equal_slices(sender_address, owner_address));
+  var msg = begin_cell()
+        .store_uint(0x18, 6) ;; 0x10 to 0x18 ???
         .store_slice(owner_address) ;; switched
         .store_grams(0)
         .store_uint(0, 1 + 4 + 4 + 64 + 32 + 1 + 1)
         .store_slice(sender_address) ;; switched
         .store_ref(begin_cell().store_slice(in_msg_body).end_cell()) ;; in_msg_full to in_msg_body
       .end_cell();
-   send_raw_message(msg, 64); 
+  send_raw_message(msg, 64); ;; mode
   }
   
    ;; remove for gas
