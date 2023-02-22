@@ -8,6 +8,6 @@ A contest aimed at optimisation of 5 smart contracts written in the FunC languag
 4. 4.fc - Fourth problem "Hashmaps"
 5. 5.fc - Fifth problem "Two-owner wallet"
 
-*More information*: 
-[GitHub func-contest1](https://github.com/ton-blockchain/func-contest1)
-[Ton Contest Official Website](https://ton.org/contest)
+### More information:
+* [GitHub func-contest1](https://github.com/ton-blockchain/func-contest1)
+* [Ton Contest Official Website](https://ton.org/contest)
